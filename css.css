@@ -1,3 +1,100 @@
+/* Theme variables */
+:root {
+    /* Dark theme (default) */
+    --main-bg: #313338;
+    --card-bg: #2b2d31;
+    --nav-bg: #23272a;
+    --main-text: #f2f3f5;
+    --accent: #5865f2;
+    --accent2: #00fff7;
+    --card-border: rgba(88, 101, 242, 0.18);
+    --text-secondary: #aaa;
+}
+
+/* Light theme */
+[data-theme="light"] {
+    --main-bg: #f0f2f5;
+    --card-bg: #ffffff;
+    --nav-bg: #ffffff;
+    --main-text: #2e3338;
+    --accent: #5865f2;
+    --accent2: #00b3a4;
+    --card-border: rgba(88, 101, 242, 0.25);
+    --text-secondary: #666;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--main-text);
+    cursor: pointer;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    font-size: 1.1em;
+}
+
+.theme-toggle:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* Main navigation menu styles */
+.main-menu {
+    width: 100%;
+    background: var(--nav-bg);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    border-bottom: 2px solid var(--accent);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.main-menu ul {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 12px 0;
+}
+.main-menu li a {
+    color: var(--main-text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+.main-menu li a:hover, .main-menu li a:focus {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* Footer styles */
+.main-footer {
+    width: 100%;
+    background: var(--nav-bg);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 18px 0 10px 0;
+    margin-top: 40px;
+    border-top: 2px solid var(--accent);
+    font-size: 1em;
+    letter-spacing: 1px;
+}
+.main-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    margin: 0 8px;
+    transition: color 0.2s;
+}
+.main-footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
 /* Avatar glow effect */
 .avatar-glow {
     position: absolute;
@@ -28,21 +125,8 @@
     font-style: italic;
     opacity: 0.85;
 }
-:root {
-    --main-bg: #313338;
-    --main-text: #f2f3f5;
-    --accent: #5865f2;
-    --card-bg: #2b2d31;
-    --border-radius: 16px;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-    background: linear-gradient(135deg, #313338 0%, #23272a 100%);
-    color: var(--main-text);
-    font-family: 'Roboto', sans-serif;
-    min-height: 100vh;
-    line-height: 1.6;
-}
+
+/* Container styles */
 .container {
     max-width: 900px;
     margin: 40px auto;
@@ -53,12 +137,8 @@ body {
     /* border: 3.5px solid var(--accent); */
     overflow: hidden;
 }
-h1, h2 {
-    color: var(--accent);
-    margin-bottom: 12px;
-    letter-spacing: 1px;
-    font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
-}
+
+/* Section styles */
 section {
     margin-bottom: 32px;
     animation: fadeInUp 1s;
@@ -82,25 +162,31 @@ section:hover {
     from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* Skills, Projects, Experience styles */
 .skills, .projects, .experience {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
 }
+
+/* Card styles */
 .card {
-    background: #23272a;
+    background: var(--nav-bg);
     border-radius: var(--border-radius);
     padding: 16px;
     min-width: 200px;
     flex: 1 1 220px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-    border: 2px solid rgba(88, 101, 242, 0.18);
-    transition: border-color 0.2s, box-shadow 0.2s;
+    border: 2px solid var(--card-border);
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.3s;
 }
 .card:hover {
     border-color: var(--accent);
     box-shadow: 0 4px 16px rgba(88,101,242,0.18);
 }
+
+/* Social links styles */
 .socials {
     display: flex;
     gap: 16px;
@@ -118,6 +204,8 @@ section:hover {
     color: #fff;
     background: var(--accent);
 }
+
+/* Media queries */
 @media (max-width: 600px) {
     .container { padding: 8px; }
     .skills, .projects, .experience { flex-direction: column; }
